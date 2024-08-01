@@ -24,11 +24,12 @@ jobs:
         EC2_USER: ${{ secrets.EC2_USER }}
         EC2_SSH_PORT: ${{ secrets.EC2_SSH_PORT }}
       run: |
-        ssh -p $EC2_SSH_PORT -o StrictHostKeyChecking=no $EC2_USER@$EC2_HOST 'source ~/.bashrc' << 'EOF'
+        ssh -p $EC2_SSH_PORT -o StrictHostKeyChecking=no $EC2_USER@$EC2_HOST << 'EOF'
+          . ~/.nvm/nvm.sh
           set -e # Exit immediately if a command exits with a non-zero status
           echo "Pulling latest changes from git repository"
           cd devops-ex
-          git pull
+          git pull 
           echo "Installing dependencies"
           npm install
           echo "Building the application"
