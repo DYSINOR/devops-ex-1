@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 
 app.get('/', (req, res) => {
-  res.status(200).send('Hello Teacher, World Sino!');
+  res.status(200).send('Hello Teacher, From World Sino!');
 });
 
 app.get('/user/:id', (req, res) => {
